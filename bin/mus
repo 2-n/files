@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -z "$(mpc status)" ]; then
+    mpd
+    ncmpcpp
+else
+    ncmpcpp
+fi

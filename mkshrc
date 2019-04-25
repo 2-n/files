@@ -1,0 +1,17 @@
+PATH="$PATH:$HOME/.local/bin"
+EDITOR="micro"
+
+HISTFILE="$HOME/.history"
+HISTSIZE="10240"
+
+PS1="$(printf "\e[100B; ")"
+
+export PATH EDITOR HISTFILE HISTSIZE PS1
+
+alias e="$EDITOR"
+
+alias tor="transmission-remote-cli"
+alias img="sxiv -b"
+alias flacmp3="for f in *.flac; do ffmpeg -i "$f" -aq 0 "${f%flac}mp3"; done"
+alias ls="ls --color"
+alias mkdir="mkdir -p"

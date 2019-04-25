@@ -1,0 +1,23 @@
+#!/bin/sh
+
+sleep 5
+
+time() {
+    printf "$(date '+%H %M')"
+}
+
+vol() {
+    vol="$(amixer -c 1 get Master | awk -F"[][]" '/dB/ { print $2 }' | sed 's/%//')"
+    if [ "$vol" = "100" ]; then
+	printf "max"
+    elif [ "$vol" = "0" ]; then
+	printf "nul"
+    else
+	printf "$vol%%"
+    fi
+}
+
+while :; do
+    echo "%{l}   %{A4:amixer -c 1 sset Master 5%+:}%{A5:amixer -c 1 sset Master 5%-:}$(vol) %{A}%{A} %{r}$(time)   "
+    sleep 1
+done | lemonbar -b -f "-artwiz-drift-medium-r-normal--10-100-75-75-n-60-iso8859-1" -B "#ffffff" -F "#000000" -g 720x35+600+10 | sh

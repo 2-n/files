@@ -1,0 +1,4 @@
+#!/bin/sh
+
+import /tmp/snp.png
+curl -sF 'file=@/tmp/snp.png' https://0x0.st/ | xclip -selection clipboard

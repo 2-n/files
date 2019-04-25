@@ -1,0 +1,3 @@
+#!/bin/sh
+
+thingmenu -x -g 35x100 -- "trm" "tabbed -c -r 2 st -w ''" "web" "firefox" "snp" "snp" "men" "dmenu_run -x 600 -y 10 -w 720 -h 35" 
